@@ -3,3 +3,7 @@
 
 # cache
 __pycache__/
+
+# db and migrations
+db.*
+migrations/

@@ -23,11 +23,11 @@ class ExperimentAdmin(admin.ModelAdmin):
 
 @admin.register(Variant)
 class VariantAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'percentage')
-    fields = ('name', 'percentage', 'description')
+    list_display = ('name', 'percentage')
+    fields = ('name', 'percentage')
 
 
 @admin.register(Treatment)
 class TreatmentAdmin(admin.ModelAdmin):
-    list_display = ('name')
-    fields = ('name')
+    list_display = ('name',)
+    fields = ('name',)
