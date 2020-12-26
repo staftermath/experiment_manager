@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Category, Experiment, Tag, Variant, Treatment
 
-# Register your models here.
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -17,17 +16,26 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Experiment)
 class ExperimentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'start_datetime', 'end_datetime')
-    fields = ('name', 'start_datetime', 'end_datetime')
+    list_display = ('name', 'start_datetime', 'end_datetime', 'category')
+    fields = (
+        'name',
+        'start_datetime',
+        'end_datetime',
+        'category',
+        'variants',
+        'description',
+        'doc',
+        'config'
+    )
 
 
 @admin.register(Variant)
 class VariantAdmin(admin.ModelAdmin):
     list_display = ('name', 'percentage')
-    fields = ('name', 'percentage')
+    fields = ('name', 'percentage', 'treatments')
 
 
 @admin.register(Treatment)
 class TreatmentAdmin(admin.ModelAdmin):
     list_display = ('name',)
-    fields = ('name',)
+    fields = ('name', 'tags')
