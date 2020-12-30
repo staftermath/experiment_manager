@@ -1,19 +1,14 @@
 from django.db import models
 
+from account.models import Team
+
 
 class Category(models.Model):
-    MARKETING = 0
-    PRODUCT = 1
-    TEAMS = {
-        MARKETING: "marketing",
-        PRODUCT: "product",
-    }
-
-    team = models.PositiveIntegerField(default=MARKETING, choices=TEAMS.items(), verbose_name="team")
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
     type = models.CharField(max_length=32, verbose_name="type")
 
     def __str__(self):
-        return f"{self.TEAMS[self.team]}: {self.type}"
+        return f"{self.team.name}: {self.type}"
 
 
 class Tag(models.Model):

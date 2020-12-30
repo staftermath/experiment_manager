@@ -6,4 +6,5 @@ __pycache__/
 
 # db and migrations
 db.*
-migrations/
+migrations/*
+!__init__.py
