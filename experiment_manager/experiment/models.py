@@ -31,6 +31,7 @@ class Treatment(models.Model):
 
 class Variant(models.Model):
 
+    id = models.AutoField()
     name = models.CharField(max_length=256, verbose_name="name")
     percentage = models.DecimalField(max_digits=6, decimal_places=4, verbose_name="percentage")
     treatments = models.ManyToManyField(Treatment, verbose_name="treatments")
@@ -41,7 +42,7 @@ class Variant(models.Model):
 
 class Experiment(models.Model):
 
-    name = models.CharField(max_length=128, verbose_name="name")
+    name = models.CharField(max_length=128, verbose_name="name", primary_key=True)
     start_datetime = models.DateTimeField(verbose_name="start time", editable=True)
     end_datetime = models.DateTimeField(verbose_name="end time", editable=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
