@@ -1,0 +1,10 @@
+# IDE files
+.idea/
+
+# cache
+__pycache__/
+
+# db and migrations
+db.*
+migrations/*
+!__init__.py
